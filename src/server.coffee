@@ -13,17 +13,24 @@ module.exports = (config) ->
 
   # core modules cannot be deactivated
   modules = config.modules.concat core_modules
-  console.log "creating server", modules
 
   app = express()
+  restCalls = []
 
   return {
     createRestCall: (rest) ->
-      restAPI[rest.apiMethod](rest) app, config
+      restCalls.push rest
 
     start: ->
+      console.log """start server with
+\t#{modules.length} modules
+\t#{restCalls.length} defined rest calls
+"""
       modules.forEach (m) ->
         m app, config
+
+      restCalls.forEach (r) ->
+        restAPI[r.apiMethod](r) app, config
 
       httpsServer.start app, config
   }

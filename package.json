@@ -1,5 +1,5 @@
 {
-  "name": "@Tutor/Server",
+  "name": "@tutor/server",
   "version": "0.1.0",
   "description": "Node Server for Tutor Online Platform",
   "author": "Welfenlab",

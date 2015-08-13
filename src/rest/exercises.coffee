@@ -10,3 +10,7 @@ module.exports =
     (app, config) ->
       app.get rest.path, (req,res) ->
         rest.dataCall(req.params.id, callback_function(res))
+  putExerciseById: (rest) ->
+    (app, config) ->
+      app.put rest.path, (req,res) ->
+        rest.dataCall(req.params.id, callback_function(res))
