@@ -1,5 +1,5 @@
 module.exports = (config, app) ->
-  spine:
+  spine =
     config: config.sharejs
     operationAllowed: (dat) -> # TODO
       return {
@@ -7,6 +7,6 @@ module.exports = (config, app) ->
         terminateSession: true
       }
     log: (str) -> # TODO
-      console.log('(share-ace) ' + str);
+      console.log('(share-ace) ' + str)
 
-  return (require('@tutor/share-ace-rethinkdb'))(app, spine);
+  return (require('@tutor/share-ace-rethinkdb'))(app, spine)
