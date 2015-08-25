@@ -17,6 +17,9 @@ module.exports = (config) ->
   app = express()
   restCalls = []
 
+  // sharejs server start
+  sharejsServer = require('./sharejs_server')(config, app);
+
   return {
     createRestCall: (rest) ->
       restCalls.push rest

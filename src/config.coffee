@@ -13,6 +13,10 @@ default_conf =
   log:
     path: "./tutor.log"
     level: "warn" # possible values: ?? debug, info, warn, error ??
+  sharejs:
+    ports:
+      sharejs: 8005
+    url: '0.0.0.0'
 
 global_config = default_conf
 
