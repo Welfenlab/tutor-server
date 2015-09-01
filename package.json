@@ -6,12 +6,14 @@
   "main": "./lib/server.js",
   "license": "MIT",
   "dependencies": {
+    "@tutor/share-ace-rethinkdb": "^0.1.6",
+    "body-parser": "^1.13.3",
     "express": "^4.12.3",
     "lodash": "^3.6.0",
     "uuid": "^2.0.1"
   },
-  "repository" : "git@github.com:Welfenlab/tutor-server.git",
-  "contributors" : [
+  "repository": "git@github.com:Welfenlab/tutor-server.git",
+  "contributors": [
     "Maximilian Klein <dasmaxl@gmail.com> (https://github.com/LittleHelicase)",
     "Maik Marschner (https://github.com/leMaik)",
     "Tim Ebbeke (https://github.com/5cript)"
@@ -28,6 +30,6 @@
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test",
     "build": "./node_modules/gulp/bin/gulp.js build",
-    "prepublish" : "node node_modules/gulp/bin/gulp.js"
+    "prepublish": "node node_modules/gulp/bin/gulp.js"
   }
 }

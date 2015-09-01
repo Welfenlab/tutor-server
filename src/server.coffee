@@ -17,6 +17,10 @@ module.exports = (config) ->
   app = express()
   restCalls = []
 
+  bodyParser = require 'body-parser'
+  app.use bodyParser.json()
+  app.use bodyParser.urlencoded extended: true
+
   # sharejs server start
   sharejsServer = require('./sharejs_server')(config, app)
 
