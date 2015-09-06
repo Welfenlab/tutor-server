@@ -22,7 +22,7 @@ module.exports = (config) ->
   app.use bodyParser.urlencoded extended: true
 
   # sharejs server start
-  sharejsServer = require('./sharejs_server')(config, app)
+  #sharejsServer = require('./sharejs_server')(config, app)
 
   return {
     createRestCall: (rest) ->
@@ -37,6 +37,8 @@ module.exports = (config) ->
         m app, config
 
       restCalls.forEach (r) ->
+        if typeof restAPI[r.apiMethod] != "function"
+          console.error "undefined rest API Method #{r.apiMethod}"
         restAPI[r.apiMethod](r) app, config
 
       httpsServer.start app, config

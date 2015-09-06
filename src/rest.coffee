@@ -13,9 +13,7 @@ module.exports = _.merge {
           rest.dataCall(req.params[rest.param], callback_function(res))
     getBySessionUID: (rest) ->
       (app, config) ->
-        console.log "defining get ", rest.path
         app.get rest.path, (req,res) ->
-          console.log req.session
           rest.dataCall(req.session.uid, callback_function(res))
     postByBodyParam: (rest) ->
       (app, config) ->
@@ -27,8 +25,6 @@ module.exports = _.merge {
           rest.dataCall(req.body[rest.param], callback_function(res))
     putBySessionUIDAndBodyParam: (rest) ->
       (app, config) ->
-        console.log "defining ", rest.path
         app.put rest.path, (req, res) ->
-          console.log req.session.uid, req.body
           rest.dataCall(req.session.uid, req.body[rest.param], callback_function(res))
   }
