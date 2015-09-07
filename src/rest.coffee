@@ -27,4 +27,8 @@ module.exports = _.merge {
       (app, config) ->
         app.put rest.path, (req, res) ->
           rest.dataCall(req.session.uid, req.body[rest.param], callback_function(res))
+    deleteBySessionUID: (rest) ->
+      (app, config) ->
+        app.delete rest.path, (req,res) ->
+          rest.dataCall(req.session.uid, callback_function(res))
   }

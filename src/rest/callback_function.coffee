@@ -5,5 +5,7 @@ module.exports = (res) ->
     if err
       console.error err
       res.status(500).send err
-    else
+    else if data
       res.status(200).json(data)
+    else
+      res.status(204).end()
