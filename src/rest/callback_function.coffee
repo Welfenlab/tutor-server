@@ -1,9 +1,10 @@
 
 
-module.exports = (res) ->
+module.exports = (res, config) ->
+  log = config.log
   (err, data) ->
     if err
-      console.error err
+      log.error err
       res.status(500).send err
     else if data
       res.status(200).json(data)
