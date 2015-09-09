@@ -1,38 +1,38 @@
 
 _ = require 'lodash'
-callback_function = require './rest/callback_function'
+promisedCallback = require './promised_callback'
 
 module.exports = _.merge {
     get: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
-          rest.dataCall(callback_function(res, config))
+          promisedCallback rest.dataCall(), res, config
     getByParam: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
-          rest.dataCall(req.params[rest.param], callback_function(res, config))
+          promisedCallback rest.dataCall(req.params[rest.param]), res, config
     getBySessionUID: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
-          rest.dataCall(req.session.uid, callback_function(res, config))
+          promisedCallback rest.dataCall(req.session.uid), res, config
     postByBodyParam: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
-          rest.dataCall(req.body[rest.param], callback_function(res, config))
+          promisedCallback rest.dataCall(req.body[rest.param]), res, config
     putByBodyParam: (rest) ->
       (app, config) ->
         app.put rest.path, (req, res) ->
-          rest.dataCall(req.body[rest.param], callback_function(res, config))
+          promisedCallback rest.dataCall(req.body[rest.param]), res, config
     putBySessionUIDAndBodyParam: (rest) ->
       (app, config) ->
         app.put rest.path, (req, res) ->
-          rest.dataCall(req.session.uid, req.body[rest.param], callback_function(res, config))
+          promisedCallback rest.dataCall(req.session.uid, req.body[rest.param]), res, config
     postBySessionUIDAndBodyParam: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
-          rest.dataCall(req.session.uid, req.body[rest.param], callback_function(res, config))
+          promisedCallback rest.dataCall(req.session.uid, req.body[rest.param]), res, config
     deleteBySessionUID: (rest) ->
       (app, config) ->
         app.delete rest.path, (req,res) ->
-          rest.dataCall(req.session.uid, callback_function(res, config))
+          promisedCallback rest.dataCall(req.session.uid), res, config
   }
