@@ -33,6 +33,8 @@ module.exports = (config) ->
 \t#{modules.length} modules
 \t#{restCalls.length} defined rest calls
 """
+      server = httpsServer.start app, config
+
       modules.forEach (m) ->
         m app, config
 
@@ -41,5 +43,5 @@ module.exports = (config) ->
           console.error "undefined rest API Method #{r.apiMethod}"
         restAPI[r.apiMethod](r) app, config
 
-      httpsServer.start app, config
+      server
   }

@@ -11,6 +11,7 @@ module.exports =
       credentials = key: privateKey, cert: certificate
 
       httpsServer = https.createServer credentials, app
+      app.server = httpsServer
       httpServer = http.createServer()
       httpServer.get '*', (req,res) ->
         res.redirect 'https://'+config.domainname+"/"+req.url
@@ -20,6 +21,7 @@ module.exports =
       console.log 'server started at https://'+config.domainname
     else
       httpServer = http.createServer app
+      app.server = httpServer
       if config.development
         httpServer.listen config.developmentPort
         console.log 'server started at http://'+config.domainname + ':' + config.developmentPort
