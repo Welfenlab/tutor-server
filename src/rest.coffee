@@ -6,15 +6,16 @@ module.exports = _.merge {
     get: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
+          console.log req.session
           promisedCallback rest.dataCall(), res, config
     getByParam: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
           promisedCallback rest.dataCall(req.params[rest.param]), res, config
-    getBySessionUID: (rest) ->
+    getBySessionPseudo: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
-          promisedCallback rest.dataCall(req.session.uid), res, config
+          promisedCallback rest.dataCall(req.session.pseudonym), res, config
     postByBodyParam: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
@@ -23,16 +24,16 @@ module.exports = _.merge {
       (app, config) ->
         app.put rest.path, (req, res) ->
           promisedCallback rest.dataCall(req.body[rest.param]), res, config
-    putBySessionUIDAndBodyParam: (rest) ->
+    putBySessionPseudoAndParam: (rest) ->
       (app, config) ->
         app.put rest.path, (req, res) ->
-          promisedCallback rest.dataCall(req.session.uid, req.body[rest.param]), res, config
-    postBySessionUIDAndBodyParam: (rest) ->
+          promisedCallback rest.dataCall(req.session.pseudonym, req.body[rest.param]), res, config
+    postBySessionPseudoAndParam: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
-          promisedCallback rest.dataCall(req.session.uid, req.body[rest.param]), res, config
-    deleteBySessionUID: (rest) ->
+          promisedCallback rest.dataCall(req.session.pseudonym, req.body[rest.param]), res, config
+    deleteBySessionPseudo: (rest) ->
       (app, config) ->
         app.delete rest.path, (req,res) ->
-          promisedCallback rest.dataCall(req.session.uid), res, config
+          promisedCallback rest.dataCall(req.session.pseudonym), res, config
   }
