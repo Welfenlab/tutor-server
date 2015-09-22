@@ -1,6 +1,6 @@
 
 
-module.exports = (promise, res, config) ->
+module.exports = (promise, res, config, errStatus) ->
   log = config.log
   promise.then (data) ->
     if data
@@ -10,4 +10,4 @@ module.exports = (promise, res, config) ->
   promise.catch (error) ->
     log.error error
     # TODO: perhaps we dont send errors in non dev mode?
-    res.status(500).send error
+    res.status(errStatus).send error

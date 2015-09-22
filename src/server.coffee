@@ -26,6 +26,7 @@ module.exports = (config) ->
 
   return {
     createRestCall: (rest) ->
+      rest.errStatus = rest.errStatus || 500
       restCalls.push rest
 
     start: ->
