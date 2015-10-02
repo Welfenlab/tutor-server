@@ -19,6 +19,12 @@ module.exports = _.merge {
       (app, config) ->
         app.get rest.path, (req,res) ->
           promisedCallback rest.dataCall(req.session.uid, req.params[rest.param]), res, config, rest.errStatus
+    getFileByParam: (rest) ->
+      (app, config) ->
+        app.get rest.path, (req,res) ->
+          rest.dataCall(req.params[rest.param]).then (file) ->
+            console.log("getting file " + file)
+            res.sendFile file
     postByBodyParam: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
