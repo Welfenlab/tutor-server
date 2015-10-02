@@ -23,7 +23,6 @@ module.exports = _.merge {
       (app, config) ->
         app.get rest.path, (req,res) ->
           rest.dataCall(req.params[rest.param]).then (file) ->
-            console.log("getting file " + file)
             res.sendFile file
     postByBodyParam: (rest) ->
       (app, config) ->
