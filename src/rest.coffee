@@ -11,6 +11,11 @@ module.exports = _.merge {
       (app, config) ->
         app.get rest.path, (req,res) ->
           promisedCallback rest.dataCall(req.params[rest.param]), res, config, rest.errStatus
+    getByParams: (rest) ->
+      (app, config) ->
+        app.get rest.path, (req,res) ->
+          args = _.map rest.params, (p) -> req.params[p]
+          promisedCallback rest.dataCall.apply(null, args), res, config, rest.errStatus
     getBySessionUID: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
