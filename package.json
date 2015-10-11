@@ -1,12 +1,12 @@
 {
   "name": "@tutor/server",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "Node Server for Tutor Online Platform",
   "author": "Welfenlab",
   "main": "./lib/server.js",
   "license": "MIT",
   "dependencies": {
-    "@tutor/share-ace-rethinkdb": "^0.1.6",
+    "@tutor/share-ace-rethinkdb": "0.4.2",
     "body-parser": "^1.13.3",
     "express": "^4.12.3",
     "lodash": "^3.6.0",
