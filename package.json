@@ -6,7 +6,7 @@
   "main": "./lib/server.js",
   "license": "MIT",
   "dependencies": {
-    "@tutor/share-ace-rethinkdb": "0.4.2",
+    "@tutor/share-ace-rethinkdb": "0.7.0",
     "body-parser": "^1.13.3",
     "express": "^4.12.3",
     "lodash": "^3.6.0",
