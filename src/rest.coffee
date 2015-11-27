@@ -11,6 +11,10 @@ module.exports = _.merge {
       (app, config) ->
         app.get rest.path, (req,res) ->
           promisedCallback rest.dataCall(req.params[rest.param]), res, config, rest.errStatus
+    getByQuery: (rest) ->
+      (app, config) ->
+        app.get rest.path, (req,res) ->
+          promisedCallback rest.dataCall(req.query[rest.param]), res, config, rest.errStatus
     getByParams: (rest) ->
       (app, config) ->
         app.get rest.path, (req,res) ->
