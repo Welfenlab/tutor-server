@@ -12,7 +12,9 @@ module.exports = (config) ->
   config = tutor_config config
 
   # core modules cannot be deactivated
-  modules = config.modules.concat core_modules
+  modules = config.modules.concat(core_modules)
+  if config.lastModule
+    modules = modules.concat(config.lastModule)
 
   app = express()
   restCalls = []
