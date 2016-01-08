@@ -13,8 +13,6 @@ module.exports = (config) ->
 
   # core modules cannot be deactivated
   modules = config.modules.concat(core_modules)
-  if config.lastModule
-    modules = modules.concat(config.lastModule)
 
   app = express()
   restCalls = []
@@ -46,5 +44,8 @@ module.exports = (config) ->
           console.error "undefined rest API Method #{r.apiMethod}"
         restAPI[r.apiMethod](r) app, config
 
-      server
+      if config.lastModule
+        config.lastModule app, config
+
+      return server
   }
