@@ -1,6 +1,6 @@
 {
   "name": "@tutor/server",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Node Server for Tutor Online Platform",
   "author": "Welfenlab",
   "main": "./lib/server.js",
