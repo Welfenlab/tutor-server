@@ -37,6 +37,10 @@ module.exports = _.merge {
       (app, config) ->
         app.get rest.path, (req, res) ->
           rest.dataCall(req.params[rest.param], res)
+    getResBySessionUIDAndParam: (rest) ->
+      (app, config) ->
+        app.get rest.path, (req, res) ->
+          rest.dataCall(req.session.uid, req.params[rest.param], res)
     post: (rest) ->
       (app, config) ->
         app.post rest.path, (req, res) ->
